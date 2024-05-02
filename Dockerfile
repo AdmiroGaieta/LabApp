@@ -1,15 +1,3 @@
-# Use a imagem base
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
-
-# Copie o script para dentro do contêiner
-COPY create_table.sql /app/
-
-# Sua etapa de construção
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
 COPY ["LabApp_.csproj", "."]
 RUN dotnet restore "./LabApp_.csproj"
 COPY . .
