@@ -11,8 +11,9 @@ COPY . .
 WORKDIR "/src/."
 RUN dotnet build "LabApp_.csproj" -c Release -o /app/build
 
-# Adicionando a instrução COPY para copiar o arquivo create_table.sql
-COPY path/to/create_table.sql /app/create_table.sql
+# Adicionando a instrução COPY para copiar o arquivo create_table.sql do GitHub
+# Certifique-se de usar o URL raw do arquivo
+COPY https://raw.githubusercontent.com/AdmiroGaieta/LabApp/master/create_table.sql /app/create_table.sql
 
 FROM build AS publish
 RUN dotnet publish "LabApp_.csproj" -c Release -o /app/publish /p:UseAppHost=false
