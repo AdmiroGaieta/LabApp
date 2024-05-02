@@ -50,18 +50,6 @@ namespace LabApp_
             }
 
              ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-
-
-
-
-
-
-
-
-
-
-
             CreateSchoolsTable();
             var builder = WebApplication.CreateBuilder(args);
 
@@ -96,11 +84,13 @@ namespace LabApp_
 
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
+
+            
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+
+          
+
 
             app.UseHttpsRedirection();
 
